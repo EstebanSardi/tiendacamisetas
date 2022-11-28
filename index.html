@@ -5,14 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TIENDA DE CAMISETAS</title>
+    <link rel="shortcut icon" href="images/mark.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
+<style>
+    body {
+        background-image: url('images/fondo.jpg');
+        background-size: center;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: black ;">
+        </div>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CAMISETAS</a>
+            <a class="navbar-logo" href="index.html">
+                <img src="images/mark3.png" width="120" height="120">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -21,33 +33,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-white" href="login.html">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link active text-white opacity-0"
+                            href="login.html">logikffdfhskhfsdkjddndadahdkjaahskdhakda</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Categorias
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li>
+                        <img src="images/banner.jpg" height="80">
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
+    <br>
     <div class="container">
         <div class="row" id="productos">
             <div class="col-3">
@@ -67,15 +66,17 @@
         console.log("Hola");
         fetch("http://localhost:9011/productos")
             .then(response => response.json())
-            .then(data => {console.log(data)
+            .then(data => {
+                console.log(data)
                 let codigo = ""
                 data.forEach(element => {
+                    
                     codigo += '<div class="col-3">'
                     codigo += '<div class="card" style="width: 18rem;">'
-                    codigo += '<img src="./images/'+element.id+'.jpg" class="card-img-top" alt="...">'
+                    codigo += '<img src="./images/' + element.id + '.jpg" class="card-img-top" alt="...">'
                     codigo += '<div class="card-body">'
-                    codigo += '<h5 class="card-title">'+element.nombre+'- $'+element.precio+'</h5>'
-                    codigo += '<p class="card-text">'+element.descripcion+'</p>'
+                    codigo += '<h5 class="card-title">' + element.nombre + '- $' + element.precio + '</h5>'
+                    codigo += '<p class="card-text">' + element.descripcion + '</p>'
                     codigo += '</div >'
                     codigo += '</div >'
                     codigo += '</div >'
